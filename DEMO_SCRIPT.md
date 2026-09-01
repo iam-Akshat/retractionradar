@@ -1,41 +1,62 @@
-# RetractionRadar demo script (under three minutes)
+# RetractionRadar demo script — target 2:35
 
-## 0:00–0:20 — Problem and product
+Use the live site and the real DOI set in `DEMO_DATA.md`. Keep that file open off-camera.
 
-“A retracted paper can remain in a manuscript long after the retraction is published. RetractionRadar is a reference-integrity workbench where a researcher and an agent investigate the same live bibliography.”
+## 0:00–0:18 — Problem and product
 
-Show the empty import screen and emphasize that the public sample contains real DOI identifiers; metadata is not fictional or pre-seeded.
+**Show:** Empty import screen, `7 site tools ready`, and “No fictional records.”
 
-## 0:20–0:50 — Live verification
+**Say:** “Retraction notices can appear after a paper has already entered manuscripts and reference libraries. RetractionRadar is a reference-integrity workbench where a researcher and an agent investigate the same live bibliography.”
 
-Click **Load real sample**. The records resolve from Crossref and OpenAlex. Open the red citation and show:
+## 0:18–0:52 — Live verification
 
-- the real paper title;
-- the registry finding;
-- the linked publisher notice;
-- Crossref and OpenAlex provenance;
-- the OpenAlex citation count.
+Paste:
 
-## 0:50–1:25 — WebMCP investigation
+> Load and verify these DOI identifiers using the site tools: `10.1021/am300292v`, `10.1038/s41586-021-03819-2`, and `10.1126/science.1225829`. Summarize only what the linked Crossref and OpenAlex evidence supports. Absence of a retraction relation is not proof that a paper is scientifically valid.
 
-Ask the agent: “Inspect the retracted reference and find replacement candidates. Explain that these are leads, not equivalent papers.”
+**Show:** The flagged record, publisher notice link, Crossref and OpenAlex provenance, and the two controls.
 
-The agent calls the site tools. Candidate cards appear in the shared Repair desk. Open one DOI to show it is a real publication.
+**Say:** “These are real identifiers. Crossref returns a publisher retraction relation for this paper; OpenAlex supplies scholarly metadata and citation context. The app does not invent a status or claim that an unflagged paper is automatically valid.”
 
-## 1:25–1:55 — Protected handoff
+## 0:52–1:28 — WebMCP investigation
 
-Ask the agent: “Stage the strongest-looking lead, but do not approve it.”
+Paste:
 
-The staged candidate appears as **Pending human approval**. Show the activity log attributing the action to the agent. Explain that there is deliberately no approval tool.
+> Inspect `10.1021/am300292v` and find replacement candidates. Treat every candidate only as a research lead, never as an equivalent paper.
 
-Review the candidate and click **Approve repair** yourself.
+**Show:** Candidate cards appearing in the Repair desk. Open the DOI of one visible candidate in a new tab.
 
-## 1:55–2:30 — Auditable export
+**Say:** “The website exposes seven structured WebMCP tools. The agent can verify a bibliography, inspect evidence, follow the scholarly graph, and surface non-retracted leads directly in the workspace I can see.”
 
-Ask the agent: “Prepare the integrity export preview.”
+## 1:28–1:58 — Protected handoff
 
-Show the BibTeX plus integrity report. The approved DOI is substituted; unapproved flags would remain unchanged and documented. Click **Download .bib** manually.
+Using the DOI of a currently visible candidate, paste:
 
-## 2:30–2:50 — Why WebMCP
+> Stage candidate `[VISIBLE CANDIDATE DOI]` for `10.1021/am300292v` with this rationale: “Related non-retracted work surfaced from OpenAlex. Relevance to the manuscript’s exact claim still requires expert review.” Do not approve or apply the change.
 
-“Without WebMCP, this is either manual tab-hopping or an opaque agent pipeline. With WebMCP, the agent handles the repetitive investigation inside a product the researcher can see and control. The agent stages; the human decides; the export proves what happened.”
+**Show:** **Pending human approval** and the agent entry in Activity. Then inspect the candidate and click **Approve repair** yourself.
+
+**Say:** “There is deliberately no WebMCP approval tool. The agent stages a lead; only the researcher can approve or reject a citation change.”
+
+## 1:58–2:22 — Auditable export
+
+Paste:
+
+> Prepare the integrity export preview. Use only human-approved repairs and do not download a file.
+
+**Show:** BibTeX plus integrity report, then manually download if useful.
+
+**Say:** “Only the human-approved DOI changes. Pending or rejected suggestions leave the original citation untouched, and the report preserves findings, sources, and the review rationale.”
+
+## 2:22–2:35 — Why WebMCP
+
+**Say:** “Without WebMCP, this is manual tab-hopping or an opaque agent pipeline. With WebMCP, repetitive investigation happens through safe product actions while the consequential decision stays visible and human-owned.”
+
+End on the approved repair and integrity report.
+
+## Recording rules
+
+- Never hard-code a candidate as “the replacement”; live ordering can change.
+- Never call a candidate scientifically equivalent without reading the manuscript’s claim and the candidate paper.
+- Never show the OpenAlex API key.
+- Final submission needs audible narration. Existing silent rehearsal: `outputs/retractionradar-demo/retractionradar-demo.mp4` (36.04 seconds).
