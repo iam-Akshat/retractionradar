@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-source-serif);
+}
+
+:root {
+  --paper: #f7f4ed;
+  --cream: #f1ede3;
+  --ink: #182b3a;
+  --muted-ink: #667078;
+  --line: #dcd6ca;
+  --signal: #b22d25;
+  --signal-soft: #f9e4df;
+  --moss: #26705c;
+  --moss-soft: #e0eee8;
+  --amber: #9b6615;
+  --amber-soft: #f7ebcf;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body { margin: 0; font-family: var(--font-geist-sans), Arial, sans-serif; }
+button, textarea, input { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+::selection { background: #c8ded5; color: var(--ink); }
