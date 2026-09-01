@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: 'RetractionRadar — Reference integrity workbench',
   description:
     'Verify scholarly citations against live evidence, review retractions, and approve source-backed repairs.',
-  metadataBase: new URL('https://retractionradar.example'),
+  metadataBase: new URL('https://retractionradar.masterakshata.chatgpt.site'),
   openGraph: {
     title: 'RetractionRadar',
     description:
