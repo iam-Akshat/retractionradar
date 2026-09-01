@@ -16,5 +16,5 @@
 - [x] Record and visually review a 36.04-second silent real-data rehearsal.
 - [x] Prepare the final timed narration, copy-ready prompts, DOI sheet, and uploadable `.bib` fixture.
 - [ ] Publish a public Git repository with source, setup instructions, and visible MIT license.
-- [ ] Make the hosted site public only after final review.
+- [x] Make the hosted site public.
 - [ ] Add live URL, repository URL, and YouTube URL to the submission form.
