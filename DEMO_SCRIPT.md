@@ -12,11 +12,11 @@ Record ChatGPT and the in-app browser together. Keep the conversation visible wh
 
 ## 0:00-0:20: Problem and human starting point
 
-**Do:** Upload `demo-data/retractionradar-sample.bib` using **Upload .bib / .tex**. Upload starts the live checks; let the queue load.
+**Do:** Upload `demo-data/retractionradar-sample.bib` using **Upload .bib / .tex**. Upload starts the live checks; let the queue load and show the red flagged reference. This detection is automatic app behavior, not agent work.
 
 **Say:**
 
-> "A retraction warning tells me to investigate a citation. It doesn't tell me what to cite instead. I'm uploading a small bibliography on chitosan wound dressings. RetractionRadar gives me and my agent the same references to work through."
+> "I'm uploading a small bibliography on chitosan wound dressings. The app checks it automatically and flags this reference in red. That tells me where to look, but I still need to investigate the evidence and decide what to do next."
 
 ## 0:20-0:43: Why WebMCP fits this work
 
@@ -24,21 +24,21 @@ Record ChatGPT and the in-app browser together. Keep the conversation visible wh
 
 **Say:**
 
-> "Crossref and OpenAlex supply the records. WebMCP connects the agent to this workspace: it can read the bibliography I uploaded, inspect findings, and put a proposal in the Repair desk. I review it here, then the agent can read my decision and prepare the export. I don't have to copy everything into chat."
+> "The red flag doesn't need an agent. WebMCP is useful for what follows: the agent can investigate the flagged reference and put a candidate in this Repair desk. I review it here, then the agent reads my decision and prepares the export. We work from the same bibliography without copying it into chat."
 
-## 0:43-1:10: Agent investigates the existing queue
+## 0:43-1:10: Agent investigates the flagged reference
 
 Paste:
 
-> Look through the references I've uploaded to RetractionRadar. Which ones need attention, and what's the evidence?
+> Investigate the flagged paper in RetractionRadar and find related work worth reviewing. If there's a promising lead, put it in the Repair desk and explain its limitations.
 
-Let the agent discover the flagged reference and inspect its sources. Do not supply the known answer, specify tool order, or reload the DOI set through a scripted prompt.
+The app has already identified the flagged reference. Let the agent read that state, inspect the available registry evidence, search related work, and stage a useful lead. Do not ask it to repeat detection, supply a candidate DOI, specify tool order, or reload the bibliography.
 
 **Show:** The agent using site tools, opening a finding in the page, and linking the publisher notice and registry evidence. Describe only what the current results support.
 
 **Say, if the live records confirm it:**
 
-> "This reference has a linked retraction notice. The others have no retraction relation returned by these sources. That doesn't prove their scientific validity. We can both inspect the evidence behind the flag."
+> "The agent is working from the reference already flagged in the app. It can inspect the linked registry evidence and look for related work, while I can open the original sources. A related paper still isn't a proven replacement."
 
 Do not memorize live citation counts. If the agent only answers in chat, ask on camera:
 
@@ -46,9 +46,7 @@ Do not memorize live citation counts. If the agent only answers in chat, ask on 
 
 ## 1:10-1:45: Agent proposes, human reviews
 
-Paste:
-
-> Can you find related papers worth looking at? If there's a promising lead, put it in the Repair desk for me to review and explain why you picked it.
+Continue the same agent run. The first prompt already asks for related work and a review proposal; no second search prompt is needed.
 
 **Show:** Live candidate cards, a staged proposal marked **Pending human approval**, and its rationale. The agent chooses from the current results; do not paste a candidate DOI or a prepared rationale.
 
