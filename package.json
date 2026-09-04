@@ -9,7 +9,8 @@
     "dev": "vinext dev",
     "build": "vinext build",
     "start": "wrangler dev --config dist/server/wrangler.json",
-    "lint": "oxlint app components/retraction-workspace.tsx lib/references.ts vite.config.ts",
+    "lint": "oxlint app components/retraction-workspace.tsx components/repair-desk.tsx lib/references.ts vite.config.ts",
+    "test": "node --test tests/*.test.mjs",
     "format": "oxfmt"
   },
   "dependencies": {
