@@ -1,108 +1,111 @@
-# RetractionRadar manual demo script — 2:30 target
+# RetractionRadar manual demo script: 2:45 target
 
-Record ChatGPT and the in-app browser together. Keep the agent conversation visible whenever a WebMCP tool runs. Do not show terminals, source code, credentials, or fabricated scholarly data.
+Record ChatGPT and the in-app browser together. Keep the conversation visible whenever a WebMCP tool runs. Do not show terminals, source code, credentials, or fabricated scholarly data.
 
 ## Before recording
 
-1. Open `https://retractionradar.masterakshata.chatgpt.site/` in ChatGPT’s in-app browser.
-2. Confirm the empty workspace shows **7 site tools ready** and **No fictional records**.
-3. Start a fresh ChatGPT conversation.
-4. Run the live checks in `DEMO_DATA.md`; keep that file off-camera.
-5. Copy the DOI of one relevant candidate currently visible in the Repair desk. Candidate ordering can change, so never memorize or claim a universal replacement.
+1. Open `https://retractionradar.masterakshata.chatgpt.site/` in ChatGPT's in-app browser. Confirm **7 site tools ready** and **No fictional records**.
+2. Run the live checks in `DEMO_DATA.md` off-camera, then reset to an empty workspace and start a fresh conversation. Do not carry staged repairs or approvals over from rehearsal.
+3. Have `demo-data/retractionradar-sample.bib` ready to upload. It contains three real DOI identifiers; call it a small verification set, not a real manuscript's bibliography.
+4. Keep the known flagged DOI, publisher notice, and previously observed candidates in `DEMO_DATA.md` as preflight references. Use the natural prompts below on camera, not that file's detailed check prompts.
+5. No candidate is a predetermined correct replacement. The sample supplies no manuscript claim against which to establish scientific suitability. The default demo therefore rejects an unverified replacement and preserves the unresolved flag.
 
-## 0:00–0:18 — Problem and product
+## 0:00-0:20: Problem and human starting point
 
-**Show:** Empty RetractionRadar workspace beside the ChatGPT conversation. Point out **7 site tools ready** and **No fictional records**.
-
-**Say:**
-
-> “A paper can be retracted after it has already entered manuscripts and reference libraries. RetractionRadar is a shared reference-integrity workspace where a researcher and an agent investigate the same real bibliography.”
-
-## 0:18–0:30 — Why WebMCP
-
-**Show:** Citation queue, Evidence trail, Repair desk, Activity, and export controls.
+**Do:** Upload `demo-data/retractionradar-sample.bib` using **Upload .bib / .tex**. Upload starts the live checks; let the queue load.
 
 **Say:**
 
-> “Instead of browsing several scholarly services and copying results manually, ChatGPT gets seven structured WebMCP tools. Every agent action updates the same visible workspace that I can inspect and control.”
+> "A retraction warning tells me to investigate a citation. It doesn't tell me what to cite instead. I'm uploading a small verification set of three real papers. RetractionRadar gives me and my agent the same bibliography to work through."
 
-## 0:30–1:02 — Verify a mixed bibliography
+## 0:20-0:43: Why WebMCP fits this work
 
-Paste this exact prompt into ChatGPT:
+**Show:** The loaded citation queue, Evidence trail, Repair desk, and tool badge.
 
-> Use RetractionRadar’s site tools only. Load and verify these DOI identifiers: `10.1021/am300292v`, `10.1038/s41586-021-03819-2`, and `10.1126/science.1225829`. Inspect the evidence for `10.1021/am300292v`. Report only what Crossref and OpenAlex support. Do not treat the absence of a retraction relation as proof that a paper is scientifically valid.
+**Say:**
 
-**While the agent runs, say:**
+> "Crossref and OpenAlex supply the records. WebMCP connects the agent to this workspace: it can read the bibliography I uploaded, inspect findings, and put a proposal in the Repair desk. I review it here, then the agent can read my decision and prepare the export. I don't have to copy everything into chat."
 
-> “These are real DOI identifiers. Crossref links the first paper to a publisher retraction notice. OpenAlex supplies scholarly metadata and citation context. The other records have no retraction relation returned by these sources, which is not the same as proving their scientific validity.”
-
-**Capture visibly:**
-
-- the agent invoking the site tools;
-- one flagged reference and two controls in the citation queue;
-- the linked publisher notice;
-- separate Crossref and OpenAlex evidence links.
-
-Do not narrate a citation count because live counts can change.
-
-## 1:02–1:27 — Find research leads
+## 0:43-1:10: Agent investigates the existing queue
 
 Paste:
 
-> For flagged DOI `10.1021/am300292v`, find replacement candidates using the site tools. Treat every result only as a research lead—not an equivalent or automatically valid replacement. Stop after the candidates are visible.
+> Look through the references I've uploaded to RetractionRadar. Which ones need attention, and what's the evidence?
 
-**Show:** Candidate cards appearing in the Repair desk. Briefly open one candidate’s DOI link to prove it is a real scholarly record, then return to RetractionRadar.
+Let the agent discover the flagged reference and inspect its sources. Do not supply the known answer, specify tool order, or reload the DOI set through a scripted prompt.
 
-**Say:**
+**Show:** The agent using site tools, opening a finding in the page, and linking the publisher notice and registry evidence. Describe only what the current results support.
 
-> “The agent follows the scholarly graph and surfaces related, non-retracted leads. RetractionRadar deliberately does not claim that a candidate answers the manuscript’s exact scientific claim. That requires expert review.”
+**Say, if the live records confirm it:**
 
-## 1:27–1:52 — Protected agent-to-human handoff
+> "This reference has a linked retraction notice. The others have no retraction relation returned by these sources. That doesn't prove their scientific validity. We can both inspect the evidence behind the flag."
 
-Choose a relevant DOI that is currently visible in the Repair desk and replace `[VISIBLE CANDIDATE DOI]` before pasting:
+Do not memorize live citation counts. If the agent only answers in chat, ask on camera:
 
-> Stage candidate `[VISIBLE CANDIDATE DOI]` for `10.1021/am300292v` with this rationale: “Related non-retracted work surfaced from OpenAlex. Relevance to the manuscript’s exact claim still requires expert review.” Do not approve, reject, apply, or download anything.
+> Open that finding in RetractionRadar so I can inspect it.
 
-**Show:** **Pending human approval** and the staged action in Activity.
-
-**Say:**
-
-> “There is no WebMCP tool that can approve or reject a repair. The agent can stage a lead, but only the researcher can make the consequential citation decision.”
-
-## 1:52–2:10 — Human decision
-
-**Do manually:** Review the candidate title, DOI, rationale, and source link. If it is suitable for demonstrating the workflow, click **Approve repair** yourself.
-
-**Say:**
-
-> “I inspect the evidence and approve the staged change myself. Until this human action, the original DOI remains untouched.”
-
-If the visible candidate is clearly irrelevant, click **Reject**, find another live candidate, and restart the recording. Never approve an obviously poor lead for convenience.
-
-## 2:10–2:23 — Auditable export
+## 1:10-1:45: Agent proposes, human reviews
 
 Paste:
 
-> Prepare the integrity export preview using only human-approved repairs. Do not copy or download a file.
+> Can you find related papers worth looking at? If there's a promising lead, put it in the Repair desk for me to review and explain why you picked it.
 
-**Show:** **Reviewed bibliography + integrity report**, the approved DOI substitution, original flagged DOI in the report, provenance, and review rationale.
-
-**Say:**
-
-> “Only the human-approved DOI changes in the bibliography. The integrity report preserves the original finding, sources, decision, and rationale. Copy and Download remain human-controlled actions.”
-
-## 2:23–2:30 — Closing
-
-**End on:** Approved repair or export report with **7 site tools ready** still visible.
+**Show:** Live candidate cards, a staged proposal marked **Pending human approval**, and its rationale. The agent chooses from the current results; do not paste a candidate DOI or a prepared rationale.
 
 **Say:**
 
-> “WebMCP handles repetitive integrity research through safe product actions, while the researcher sees, verifies, and owns every consequential decision.”
+> "The proposal is attached to the flagged citation in our shared workspace. I can inspect the source and the agent's rationale before deciding. The site's tools let the agent stage a candidate, but don't give it an approval or download action."
+
+If candidates appear but none is staged, ask only if one deserves closer review:
+
+> Put that lead in the Repair desk for review.
+
+Identify it by its visible title if needed. Keep the follow-up on camera. If none is promising, do not force a proposal; show the unresolved finding and proceed to export, without claiming to have demonstrated a staged repair.
+
+## 1:45-2:07: Make a real human decision
+
+**Do:** Open the staged candidate's source and inspect its title, DOI, and rationale. Return to the Repair desk. For this verification set, click **Reject** because suitability as a replacement has not been established.
+
+**Say:**
+
+> "Related subject matter isn't enough to justify replacing a citation. This set doesn't include a manuscript claim to check, so I'm rejecting the proposed substitution. That decision is now in the workspace for the agent to read."
+
+An approval path is appropriate only if you have a real claim and have checked that the candidate supports it. Explain that basis on camera. Do not approve a candidate just to make the demo end with a replacement.
+
+## 2:07-2:35: Hand the decision back to the agent
+
+Paste:
+
+> I've finished reviewing. Check my decisions in RetractionRadar and prepare the bibliography and report for me to download.
+
+**Show:** The agent reading the current workspace and preparing **Reviewed bibliography + integrity report**. Do not repeat your decision or the candidate DOI in chat.
+
+**For the rejection path, confirm:**
+
+- the rejected candidate is not substituted into the bibliography;
+- the original flagged DOI remains, with its finding and source links in the integrity report;
+- the Repair desk and Activity show the rejection. The current exported report does not include an explicit rejection entry or rejection rationale; do not claim it does.
+
+**Say:**
+
+> "The agent reads my decision through WebMCP. The export keeps the original DOI and its warning instead of applying the rejected change. I can download the result, but this citation still needs investigation."
+
+For a justified approval, show that only the approved DOI substitution is applied and that the report retains the original finding, provenance, and staged rationale. Describe the branch you actually recorded.
+
+If the agent skips reading state, ask it on camera to check the current review decisions before preparing the preview. Never claim a tool action happened unless the recording shows it.
+
+## 2:35-2:45: Closing
+
+**End on:** Export preview or Repair desk, then the shared Activity.
+
+**Say:**
+
+> "WebMCP lets the agent contribute to the bibliography I'm reviewing and continue from my decisions. RetractionRadar keeps unresolved citations visible and leaves scientific judgment with the researcher."
 
 ## If something fails
 
-- If live metadata or the publisher relation does not load, stop recording and repeat the preflight.
-- If candidate results are irrelevant, reject them; never present one as a replacement merely to finish the demo.
-- Never describe an unflagged record as proven valid.
-- If the agent is slow, pause between completed tool calls without hiding the agent interaction.
+- If metadata or the publisher relation fails to load, stop recording and repeat the live preflight. Do not fabricate results.
+- If candidate search returns poor leads, say so. An unresolved flag is an honest result, not a reason to approve a weak replacement.
+- Never call an unflagged record scientifically proven or a related candidate equivalent.
+- These timestamps are editing targets, not a promise of tool speed. Pause between completed tool calls if needed, retain visible human-agent handoffs, and disclose cuts or speed-ups.
 - Keep the final video under three minutes with audible narration.

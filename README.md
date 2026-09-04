@@ -2,17 +2,23 @@
 
 RetractionRadar is a reference-integrity workbench for researchers, editors, reviewers, and their agents. Paste DOI identifiers or upload a `.bib` file; the app verifies each citation against current Crossref and OpenAlex records, exposes the evidence, and helps review possible replacements without silently changing the bibliography.
 
-## Why WebMCP
+## Why WebMCP matters
 
-Citation repair is not a one-shot chatbot task. An agent is useful for checking many identifiers, investigating the scholarly graph, and staging candidate replacements. A person must still judge scientific relevance and approve changes. WebMCP lets both operate on the same visible workspace:
+Finding a retraction and deciding what to cite instead are different jobs. The agent can check registry records and find related work. The researcher must read the sources and decide whether a candidate supports the manuscript's actual claim. They need a shared place to inspect the finding, review a proposed change, and keep unresolved problems visible.
 
-- the agent loads and verifies DOI sets;
-- the agent opens provenance and searches candidate leads;
-- the agent may stage a replacement, visibly marked as pending;
-- only the person can approve or reject the repair;
-- export uses approved repairs only and includes an integrity report.
+Crossref and OpenAlex provide scholarly records. RetractionRadar's WebMCP tools connect the agent to the person's current bibliography, selected reference, findings, staged repairs, and review decisions. The agent contributes to the same Repair desk the researcher is using, rather than leaving a separate list of suggestions in chat.
 
-The normal interface remains fully usable without WebMCP.
+The collaboration works in both directions:
+
+1. The person uploads a bibliography. The agent reads the visible queue, investigates flagged citations, and stages a candidate with a rationale for review.
+2. The person opens the linked sources and approves or rejects the proposal in the page. That decision changes the state the agent can read.
+3. The agent reads the updated decisions and prepares the export preview. Only approved replacements change DOI entries; rejected or pending proposals leave the original DOI and its integrity finding in the export. The person controls the download.
+
+The researcher does not have to copy the bibliography or retype every approval into chat. A rejection is useful work too: the proposed change is not applied, and the flagged reference remains visible for further investigation.
+
+A direct scholarly API connection alone cannot see which replacement the researcher rejected in RetractionRadar. A custom agent integration or browser automation could support this collaboration; WebMCP provides a standard interface for the site's declared actions and current workspace. RetractionRadar implements the review rules and export behavior itself. WebMCP is not a guarantee of scientific validity or a security boundary against arbitrary browser automation.
+
+The normal interface remains fully usable without WebMCP. Shared state here means a person and their agent in the same browser workspace, not a multi-user bibliography service.
 
 ## Data sources
 

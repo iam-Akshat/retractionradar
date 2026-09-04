@@ -6,22 +6,21 @@ RetractionRadar lets researchers and their agents catch compromised citations, i
 
 ## Why this use case fits WebMCP
 
-A citation-integrity review combines repetitive machine work with consequential human judgment. An agent can verify dozens of DOI identifiers, follow publisher update relations, search the scholarly graph, and stage plausible alternatives. A researcher or editor must inspect provenance and decide whether a candidate supports the manuscript’s actual claim. WebMCP connects those roles inside one shared, visible web app instead of forcing an agent to guess at UI controls or perform invisible changes.
+A citation-integrity review moves between registry checks and scientific judgment. The agent can investigate up to 25 DOI identifiers per check, inspect publisher update relations, and find related papers. The researcher must decide whether a candidate supports the manuscript's actual claim. Their work needs to meet in the same bibliography, with a visible record of proposed changes and review decisions.
 
-RetractionRadar exposes seven narrow tools for loading, verifying, inspecting, searching, staging, reading state, and preparing an export preview. Every tool updates the same interface the person sees. Source records are labeled untrusted, potentially consequential changes remain pending, and only human UI controls can approve a repair or download the final bibliography.
+WebMCP gives the agent seven tools connected to that workspace. It can read a bibliography the person uploaded, open evidence in the page, and stage a candidate in the Repair desk. The person approves or rejects it there. The agent can then read those decisions and prepare the export without asking the person to paste the bibliography or repeat their choices in chat. Read-only state inspection and visible research actions support both directions of the handoff.
+
+Crossref and OpenAlex provide records, not the researcher's RetractionRadar review state. A custom integration or browser automation could connect an agent to that state too; WebMCP provides a standard interface for the site's declared actions. The application implements approval rules and export behavior. Its WebMCP tools expose no approval, rejection, or download action.
 
 ## Better user experience
 
 Today, citation checks are fragmented across DOI resolvers, publisher pages, retraction databases, literature searches, and bibliography editors. RetractionRadar turns that into one auditable workflow. The app parses `.bib` files locally, retrieves live Crossref and OpenAlex evidence, links directly to notices, shows candidate leads, records who did what, and exports both BibTeX and an integrity report.
 
-The product is useful without an agent. With WebMCP, a person can ask an agent to investigate an entire bibliography, explain high-risk findings, and stage the strongest candidate while the person stays responsible for the final scientific decision.
+The product is useful without an agent. With WebMCP, a person can upload a bibliography and ask, "Which references need attention, and what's the evidence?" The agent investigates the existing queue and can stage a promising lead for review. After deciding in the page, the person asks, "Check my decisions and prepare the bibliography and report." The agent continues from that updated state. A rejected or pending proposal leaves the original DOI unchanged and the integrity finding visible; only approved replacements change DOI entries in the export.
 
 ## What was difficult before
 
-- Batch-checking a bibliography without manually visiting every DOI page.
-- Preserving provenance while moving from detection to repair.
-- Letting an agent help without granting it authority to silently rewrite citations.
-- Keeping machine research and human decisions synchronized in one visible state.
+When an agent's suggestions live in chat and bibliography edits happen elsewhere, a researcher must transfer identifiers, preserve provenance, and explain which proposals they accepted. RetractionRadar attaches the proposal and review state to the reference itself. WebMCP lets the agent read that shared record and act on it at the next handoff. Batch lookup is useful, but the two-way review workflow is the reason for using WebMCP here.
 
 ## Implementation
 
@@ -29,17 +28,22 @@ The site registers imperative tools with `document.modelContext.registerTool`. A
 
 ## Three-minute judge workflow
 
-1. Load the public verification set: three real DOI records are checked live.
-2. Open the red retracted paper and the publisher retraction notice.
-3. Ask the agent to inspect evidence and find replacement candidates.
-4. The agent stages one OpenAlex-backed lead; the app shows “Pending human approval.”
-5. The person reviews the DOI and approves it.
-6. Ask the agent to prepare the export preview.
-7. Show the approved DOI in BibTeX and the attached integrity report, then download manually.
+Follow `DEMO_SCRIPT.md` for the recording prompts and timing. `DEMO_DATA.md` and `demo-data/retractionradar-sample.bib` supply real preflight records, not predetermined replacement answers.
+
+1. The person uploads the three-DOI verification set; the app checks the records live.
+2. Ask the agent which references need attention. It reads the existing workspace and opens the evidence, including the publisher notice when confirmed by the live records.
+3. Ask for related papers worth reviewing. The agent can stage a promising live candidate with a rationale, visibly pending human approval.
+4. The person inspects the proposal. For this set, reject an unverified substitution: no manuscript claim has been supplied to establish suitability. Approve only when a real claim and source review justify it.
+5. Ask the agent to read the current decisions and prepare the export, without retyping those decisions into chat.
+6. Show that a rejected candidate is not applied, while the original DOI and integrity finding remain. For a justified approval, show the approved substitution instead. Download stays a human action.
 
 ## Why it can win
 
-- **WebMCP leverage:** seven non-trivial tools form a complete shared-state workflow, including visible agent actions and protected human decisions.
+- **WebMCP leverage:** the demo shows a round trip: the agent investigates the person's uploaded references and stages a proposal, the person reviews it, and the agent reads the decision to prepare the export.
 - **Execution:** working import, live verification, provenance, candidate search, approval, and export—not a mockup.
 - **Impact:** directly addresses a costly, common research-integrity failure for authors, journals, libraries, and systematic-review teams.
-- **Creativity and ambition:** moves beyond retraction alerts into auditable human-agent citation repair, while respecting the boundary between retrieval and scientific judgment.
+- **Creativity and ambition:** treats citation repair as a reviewable proposal attached to a reference. Human decisions become workspace state the agent can use, including the decision to leave a flagged citation unresolved.
+
+## Honest scope
+
+Candidates are research leads, not proven replacements. No registry warning does not mean scientific validity. Rejected proposals remain visible in the Repair desk and Activity; the current exported report preserves their original findings but does not include an explicit rejection entry or rejection rationale. The workspace is local to the browser session, not a multi-user reference manager.
