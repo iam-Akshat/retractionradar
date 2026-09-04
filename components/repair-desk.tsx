@@ -45,8 +45,8 @@ export function RepairDesk({ reference, candidates, repair, searching, hasSearch
         {searching ? 'Searching OpenAlex…' : showCandidates ? 'Refresh candidates' : 'Review other candidates'}
       </button>
     </> : <div className="rounded-xl border border-[var(--line)] bg-[var(--cream)] p-4">
-      <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--moss)]">Agent can assist</p>
-      <p className="mt-2 text-sm leading-6 text-[var(--muted-ink)]">Search later work on related topics and stage a candidate. The agent cannot approve or silently rewrite your bibliography.</p>
+      <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--moss)]">Try asking your agent</p>
+      <p className="mt-2 select-text text-sm leading-6 text-[var(--muted-ink)]">Investigate the flagged paper in RetractionRadar and find related work worth reviewing. If there&apos;s a promising lead, put it in the Repair desk and explain its limitations.</p>
     </div>}
 
     {showCandidates && <div className="mt-4 space-y-3" aria-busy={searching}>

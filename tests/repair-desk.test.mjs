@@ -105,3 +105,12 @@ test('initial search and retry remain available without a repair', () => {
   assert.match(renderToStaticMarkup(tree), /No candidate leads returned/);
   button(tree, 'Try search again');
 });
+
+test('initial card offers a usable opening prompt', () => {
+  const tree = mount({ ...base, candidates: [], hasSearched: false }).render();
+  const html = renderToStaticMarkup(tree);
+  assert.match(html, /Try asking your agent/);
+  assert.match(html, /Investigate the flagged paper in RetractionRadar/);
+  assert.match(html, /put it in the Repair desk and explain its limitations/);
+  assert.doesNotMatch(html, /Agent can assist/);
+});
