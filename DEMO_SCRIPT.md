@@ -6,7 +6,7 @@ Record ChatGPT and the in-app browser together. Keep the conversation visible wh
 
 1. Open `https://retractionradar.masterakshata.chatgpt.site/` in ChatGPT's in-app browser. Confirm **7 site tools ready** and **No fictional records**.
 2. Run the live checks in `DEMO_DATA.md` off-camera, then reset to an empty workspace and start a fresh conversation. Do not carry staged repairs or approvals over from rehearsal.
-3. Have `demo-data/retractionradar-sample.bib` ready to upload. It contains three real DOI identifiers; call it a small verification set, not a real manuscript's bibliography.
+3. Have `demo-data/retractionradar-sample.bib` ready to upload. It contains complete publication metadata for three real papers on chitosan/zinc-oxide wound dressings. Call it a small topical bibliography, not a real manuscript's bibliography.
 4. Keep the known flagged DOI, publisher notice, and previously observed candidates in `DEMO_DATA.md` as preflight references. Use the natural prompts below on camera, not that file's detailed check prompts.
 5. No candidate is a predetermined correct replacement. The sample supplies no manuscript claim against which to establish scientific suitability. The default demo therefore rejects an unverified replacement and preserves the unresolved flag.
 
@@ -16,7 +16,7 @@ Record ChatGPT and the in-app browser together. Keep the conversation visible wh
 
 **Say:**
 
-> "A retraction warning tells me to investigate a citation. It doesn't tell me what to cite instead. I'm uploading a small verification set of three real papers. RetractionRadar gives me and my agent the same bibliography to work through."
+> "A retraction warning tells me to investigate a citation. It doesn't tell me what to cite instead. I'm uploading a small bibliography on chitosan wound dressings. RetractionRadar gives me and my agent the same references to work through."
 
 ## 0:20-0:43: Why WebMCP fits this work
 
